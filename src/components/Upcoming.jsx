@@ -140,44 +140,22 @@ const EventDescription = styled.p`
 
 const events = [
   {
-    title: "Study Jams Session - 2",
-    date: "November 6, 2024",
+    title: "Next-Gen Legacy Modernization",
+    date: "February 22, 2025",
     description:
-      "Workshop / Study Group session focusing on hands-on learning and collaboration",
+      "GenAI, Kubernetes, and Google Cloud in Action",
     image: "/images/study-jams.jpg",
-  },
-  {
-    title: "Study Jams Session - 1",
-    date: "November 5, 2024",
-    description:
-      "Workshop / Study Group kickoff session for interactive learning",
-    image: "/images/study-jams.jpg",
-  },
-  {
-    title: "Build with AI",
-    date: "November 4, 2024",
-    description:
-      "Info session on building applications with Artificial Intelligence",
-    image: "/images/ai-workshop.jpg",
-  },
-  {
-    title: "GenAI Workshop",
-    date: "September 20, 2024",
-    description: "Workshop on Generative AI and its applications",
-    image: "/images/genai-workshop.jpg",
-    
-  },
-  {
-    title: "Inventia 2K'24",
-    date: "September 9, 2024  –  October 18, 2024",
-    description: "Inventia is a coding event organized by the Google Developer Groups, On-Campus - KARE (GDSC) as a part of the Vintra intramural events",
-    image: "/images/genai-workshop.jpg",
-    
+    url: "https://gdg-kare.tech/solution-challenge-workshop/details",
   },
 ];
 //
-const Events = () => {
-  const navigate = useNavigate();
+const Upcoming = () => {
+    const navigate = useNavigate();
+
+  const handleClick = (url) => {
+    window.open(url, "_blank"); // Open in a new tab
+  };
+
   // Function to generate gradient based on event title
   const getGradient = (title) => {
     const gradients = {
@@ -216,7 +194,7 @@ const Events = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
         >
-          Past Events
+          Upcoming Events
         </Title>
         <Subtitle
           initial={{ opacity: 0, y: 20 }}
@@ -228,42 +206,16 @@ const Events = () => {
         </Subtitle>
         <EventGrid>
           {events.map((event, index) => (
+            
             <StyledEventCard
               key={index}
+              onClick={() => handleClick(event.url)}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.3, delay: index * 0.05 }}
               whileHover={{ y: -5 }}
               whileTap={{ y: -2 }}
-              onClick={() => {
-                if (event.title === "Study Jams Session - 2") {
-                  navigate("/Study_jam2");  // Must match route definition
-  // Use the route path, NOT file name or function name
-                }
-                else if
-                 (event.title === "Study Jams Session - 1") {
-                    navigate("/Study_jam1");  // Must match route definition
-    // Use the route path, NOT file name or function name
-                  }
-                  else if
-                 (event.title === "Build with AI") {
-                    navigate("/Build_with_Ai");  // Must match route definition
-    // Use the route path, NOT file name or function name
-                  }
-                  else if
-                  (event.title === "GenAI Workshop") {
-                     navigate("/Gen_Ai");  // Must match route definition
-     // Use the route path, NOT file name or function name
-                   }
-
-                   else if
-                  (event.title === "Inventia 2K'24") {
-                     navigate("/Inventia_Hack");  // Must match route definition
-     // Use the route path, NOT file name or function name
-                   }
-                
-              }}
             >
               <EventImage>
                 {event.image ? (
@@ -301,4 +253,4 @@ const Events = () => {
   );
 };
 
-export default Events;
+export default Upcoming;

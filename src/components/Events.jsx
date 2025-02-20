@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
 import { RetroGrid } from "./RetroGrid";
+import { useNavigate } from "react-router-dom";
 
 const EventsSection = styled.section`
   padding: 8rem 2rem;
@@ -164,10 +165,19 @@ const events = [
     date: "September 20, 2024",
     description: "Workshop on Generative AI and its applications",
     image: "/images/genai-workshop.jpg",
+    
+  },
+  {
+    title: "Inventia 2K'24",
+    date: "September 9, 2024  –  October 18, 2024",
+    description: "Inventia is a coding event organized by the Google Developer Groups, On-Campus - KARE (GDSC) as a part of the Vintra intramural events",
+    image: "/images/genai-workshop.jpg",
+    
   },
 ];
 //
 const Events = () => {
+  const navigate = useNavigate();
   // Function to generate gradient based on event title
   const getGradient = (title) => {
     const gradients = {
@@ -226,6 +236,34 @@ const Events = () => {
               transition={{ duration: 0.3, delay: index * 0.05 }}
               whileHover={{ y: -5 }}
               whileTap={{ y: -2 }}
+              onClick={() => {
+                if (event.title === "Study Jams Session - 2") {
+                  navigate("/Study_jam2");  // Must match route definition
+  // Use the route path, NOT file name or function name
+                }
+                else if
+                 (event.title === "Study Jams Session - 1") {
+                    navigate("/Study_jam1");  // Must match route definition
+    // Use the route path, NOT file name or function name
+                  }
+                  else if
+                 (event.title === "Build with AI") {
+                    navigate("/Build_with_Ai");  // Must match route definition
+    // Use the route path, NOT file name or function name
+                  }
+                  else if
+                  (event.title === "GenAI Workshop") {
+                     navigate("/Gen_Ai");  // Must match route definition
+     // Use the route path, NOT file name or function name
+                   }
+
+                   else if
+                  (event.title === "Inventia 2K'24") {
+                     navigate("/Inventia_Hack");  // Must match route definition
+     // Use the route path, NOT file name or function name
+                   }
+                
+              }}
             >
               <EventImage>
                 {event.image ? (

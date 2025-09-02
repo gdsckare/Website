@@ -368,9 +368,7 @@ const LinuxWorkshopRegistration = () => {
       window.scrollTo({ top: SuccessMessage.offsetTop, behavior: "smooth" });
       e.target.reset();
     } catch (err) {
-      setError(
-        "Failed to submit registration. Please try again." + err.message || ""
-      );
+      setError("Failed to submit registration. " + err.message || "");
     } finally {
       setIsSubmitting(false);
     }

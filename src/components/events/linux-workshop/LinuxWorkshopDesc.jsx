@@ -772,7 +772,7 @@ const LinuxWorkshopDesc = () => {
             <List className="w-6 h-6 text-blue-500" />
             Prerequisites
           </h3>
-          <li>An interest to learn Linux</li>
+          <li>An interest to learn Linux!</li>
           <li>Commitment for all 4 days - stick with us!</li>
           <li>Laptop</li>
         </PrerequisitesList>
